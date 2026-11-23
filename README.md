@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# YorkUFind — Official Companion Website
 
-## Getting Started
+Companion website, landing page, and legal policy hub for the **YorkUFind** iOS application (York University student schedule builder and campus companion).
 
-First, run the development server:
+Built with **Next.js 16 (App Router)**, **TypeScript**, and **Tailwind CSS v4**. Optimized for instantaneous one-click deployment on **Vercel** via **GitHub**.
+
+---
+
+## 🔗 Key Public Routes (App Store Ready)
+
+Apple requires dedicated, publicly accessible URLs during App Store Connect submission. All routes are fully rendered and responsive:
+
+| Route | Purpose | App Store Field |
+| :--- | :--- | :--- |
+| **`/privacy`** | Complete, compliant Privacy Policy explaining on-device local storage, zero credential collection, and zero data selling. | **Privacy Policy URL** |
+| **`/terms`** | Terms of Service & EULA covering personal educational license, disclaimer of university affiliation, and academic accuracy guidance. | **Terms of Use / EULA** |
+| **`/support`** | Support & Help Center with timetable import FAQ (REM & Plot My Timetable), bug reporting, and email contact (`support@yorkufind.app`). | **Support URL** |
+| **`/`** | Modern landing page showcasing the app's features (Smart Timetable builder, Fall/Winter separation, building code decoders, offline mode). | **Marketing URL** |
+
+---
+
+## 🚀 Quick Start (Local Development)
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 3. Open in your browser
+# Visit http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To verify the production build locally:
+```bash
+npm run build
+npm run start
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚢 Deploying to Vercel with GitHub (Step-by-Step)
 
-## Learn More
+This repository is already initialized with `git`. Follow these steps to launch it live on the web:
 
-To learn more about Next.js, take a look at the following resources:
+### Step 1: Create a GitHub Repository
+1. Go to [github.com/new](https://github.com/new).
+2. Repository name: `yorkufind-website` (or any name you prefer).
+3. Set visibility to **Public** (or Private).
+4. Do **not** initialize with a README or .gitignore (they already exist here).
+5. Click **Create repository**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Step 2: Push Your Code to GitHub
+Run the following commands in the terminal from this project directory (`/Users/saroshnoori/yorkufind-website`):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+git add .
+git commit -m "feat: complete YorkUFind website with privacy policy, terms, support, and landing page"
+git branch -M main
+git remote add origin https://github.com/<YOUR-GITHUB-USERNAME>/yorkufind-website.git
+git push -u origin main
+```
+*(Replace `<YOUR-GITHUB-USERNAME>` with your actual GitHub username)*
 
-## Deploy on Vercel
+### Step 3: Deploy on Vercel
+1. Go to [vercel.com](https://vercel.com) and log in with your GitHub account.
+2. Click **"Add New..."** -> **"Project"**.
+3. Locate **`yorkufind-website`** in the list of GitHub repositories and click **Import**.
+4. Leave all build settings at their defaults (Framework Preset: **Next.js**).
+5. Click **Deploy**.
+6. Within ~60 seconds, your website will be live at `https://yorkufind-website.vercel.app` (or custom domain).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 App Store Connect URLs Reference
+
+Once deployed to Vercel (e.g. `https://yorkufind.vercel.app` or `https://yorkufind.app`), paste these exact URLs into your App Store Connect app metadata:
+
+- **Privacy Policy URL**: `https://your-domain.vercel.app/privacy`
+- **Support URL**: `https://your-domain.vercel.app/support`
+- **Marketing URL**: `https://your-domain.vercel.app/`
+
+---
+
+## 🛡️ Student Disclaimer
+
+*YorkUFind is an independent student-created project and is NOT officially affiliated with, endorsed by, or operated by York University. All trademarks, building abbreviations, course codes, and portal names belong to York University.*
