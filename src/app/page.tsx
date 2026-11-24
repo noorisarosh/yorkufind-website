@@ -1,156 +1,194 @@
 import Image from "next/image";
 import Link from "next/link";
-
-/* ─── shared styles ─── */
-const NAV_H = 60;
+import {
+  StickyHeader,
+  Reveal,
+  MagneticButton,
+  InteractivePhoneFrame,
+} from "@/components/MotionEffects";
 
 export default function Home() {
   return (
-    <div style={{ fontFamily: "inherit" }}>
-
-      {/* ── NAVBAR ── */}
-      <header style={{
-        position: "sticky", top: 0, zIndex: 50,
-        height: NAV_H,
-        background: "#fff",
-        borderBottom: "1px solid #f0f0f0",
-        display: "flex", alignItems: "center",
-        padding: "0 32px",
-        justifyContent: "space-between",
-      }}>
-        {/* Logo + name */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 28, height: 28, borderRadius: 7, overflow: "hidden", background: "#cc0000", flexShrink: 0 }}>
-            <Image src="/logo.png" alt="YorkUFind" width={28} height={28} style={{ objectFit: "cover" }} />
+    <div className="min-h-screen flex flex-col bg-white text-[#111]">
+      {/* ── #075 STICKY HEADER ── */}
+      <StickyHeader>
+        <Link href="/" className="flex items-center gap-2.5 no-underline">
+          <div className="w-7 h-7 rounded-[7px] overflow-hidden bg-[#cc0000] shrink-0 shadow-xs">
+            <Image
+              src="/logo.png"
+              alt="YorkUFind"
+              width={28}
+              height={28}
+              className="object-cover"
+            />
           </div>
-          <span style={{ fontWeight: 700, fontSize: 16, letterSpacing: "-0.3px", color: "#111" }}>
+          <span className="font-bold text-[16px] tracking-[-0.3px] text-[#111]">
             YorkUFind
           </span>
-        </div>
+        </Link>
 
-        {/* CTA */}
-        <a
+        {/* #084 Magnetic CTA */}
+        <MagneticButton
           href="mailto:yorkufind@outlook.com?subject=YorkUFind%20Access"
-          style={{
-            background: "#cc0000", color: "#fff",
-            fontSize: 13, fontWeight: 600,
-            padding: "7px 18px", borderRadius: 999,
-            textDecoration: "none",
-          }}
+          className="inline-flex items-center justify-center bg-[#cc0000] text-white text-[13px] font-semibold px-[18px] py-[7px] rounded-full no-underline shadow-sm hover:shadow-md"
         >
           Get the App
-        </a>
-      </header>
+        </MagneticButton>
+      </StickyHeader>
 
       {/* ── HERO ── */}
-      <section style={{
-        maxWidth: 960, margin: "0 auto",
-        padding: "80px 32px 60px",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: 48,
-        alignItems: "center",
-      }}>
-        {/* Left */}
-        <div>
-          <h1 style={{
-            fontSize: "clamp(32px, 5vw, 50px)",
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: "-0.03em",
-            color: "#111",
-            marginBottom: 16,
-          }}>
-            Your York University<br />
-            <span style={{ color: "#cc0000" }}>campus companion.</span>
-          </h1>
-          <p style={{ fontSize: 16, color: "#666", lineHeight: 1.65, maxWidth: 380, marginBottom: 28 }}>
-            Build your weekly schedule by pasting from REM, find courses, and access everything you need as a York student — all in one place.
-          </p>
-          <a
-            href="mailto:yorkufind@outlook.com?subject=YorkUFind%20Beta%20Access"
-            style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              background: "#000", color: "#fff",
-              padding: "11px 22px", borderRadius: 10,
-              textDecoration: "none", fontSize: 14, fontWeight: 600,
-            }}
-          >
-            {/* App Store badge SVG */}
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-            </svg>
-            Download on the App Store
-          </a>
-          <p style={{ fontSize: 12, color: "#aaa", marginTop: 10 }}>
-            Free to download · iPhone
-          </p>
+      <section className="w-full max-w-[960px] mx-auto px-6 sm:px-8 pt-14 pb-12 sm:pt-20 sm:pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Left Column */}
+        <div className="text-center md:text-left">
+          <Reveal delayMs={0}>
+            <h1
+              className="font-extrabold text-[#111] mb-4"
+              style={{
+                fontSize: "clamp(34px, 5vw, 50px)",
+                lineHeight: 1.08,
+                letterSpacing: "-0.03em",
+              }}
+            >
+              Your York University
+              <br />
+              <span style={{ color: "#cc0000" }}>campus companion.</span>
+            </h1>
+          </Reveal>
+
+          <Reveal delayMs={90}>
+            <p className="text-[16px] text-[#666] leading-[1.65] max-w-[390px] mx-auto md:mx-0 mb-7">
+              Build your weekly schedule by pasting from REM, find courses, and
+              access everything you need as a York student — all in one place.
+            </p>
+          </Reveal>
+
+          <Reveal delayMs={180}>
+            <div className="flex flex-col items-center md:items-start">
+              <MagneticButton
+                href="mailto:yorkufind@outlook.com?subject=YorkUFind%20Beta%20Access"
+                className="inline-flex items-center gap-2.5 bg-black text-white px-[22px] py-[12px] rounded-[11px] no-underline text-[14px] font-semibold shadow-md hover:shadow-lg"
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="white">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                Download on the App Store
+              </MagneticButton>
+              <p className="text-[12px] text-[#999] mt-2.5">
+                Free to download · iPhone
+              </p>
+            </div>
+          </Reveal>
         </div>
 
-        {/* Right — App icon in a phone-ish frame */}
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{
-            width: 220,
-            background: "#f5f5f5",
-            borderRadius: 36,
-            padding: 20,
-            boxShadow: "0 24px 64px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.06)",
-            display: "flex", flexDirection: "column", gap: 12,
-          }}>
-            {/* Phone top bar */}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <div style={{ width: 60, height: 6, background: "#ddd", borderRadius: 999 }} />
+        {/* Right Column — #096 Floating + #153 3D Tilt Phone Frame */}
+        <Reveal delayMs={120} className="flex justify-center">
+          <div className="relative">
+            {/* Floating badge top-left (#096 harmonic chip) */}
+            <div
+              className="animate-float-chip-a hidden sm:flex items-center gap-1.5 absolute -left-10 top-10 z-20 bg-white px-3 py-1.5 rounded-full text-[11px] font-bold text-[#111] border border-black/5"
+              style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
+            >
+              <span className="w-2 h-2 rounded-full bg-[#cc0000]" />
+              Fall Term Ready
             </div>
-            {/* App icon centered */}
-            <div style={{
-              display: "flex", justifyContent: "center", alignItems: "center",
-              height: 160,
-            }}>
-              <div style={{ width: 100, height: 100, borderRadius: 24, overflow: "hidden", background: "#cc0000", boxShadow: "0 8px 24px rgba(204,0,0,0.3)" }}>
-                <Image src="/logo.png" alt="YorkUFind App" width={100} height={100} style={{ objectFit: "cover" }} />
-              </div>
+
+            {/* Floating badge bottom-right (#096 harmonic chip) */}
+            <div
+              className="animate-float-chip-b hidden sm:flex items-center gap-1.5 absolute -right-10 bottom-20 z-20 bg-white px-3 py-1.5 rounded-full text-[11px] font-bold text-[#cc0000] border border-black/5"
+              style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}
+            >
+              100% Offline
             </div>
-            {/* Fake schedule rows */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              {[
-                { label: "NATS 1516 • 8:30 AM", room: "VH C", color: "#cc0000" },
-                { label: "SOSC 3042 • 11:30 AM", room: "Online", color: "#555" },
-                { label: "HUMA 3835 • 2:30 PM", room: "MC 112", color: "#cc0000" },
-              ].map((c, i) => (
-                <div key={i} style={{
-                  background: "#fff", borderRadius: 10, padding: "8px 10px",
-                  display: "flex", justifyContent: "space-between", alignItems: "center",
-                  boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
-                }}>
-                  <div>
-                    <div style={{ fontSize: 10, fontWeight: 700, color: "#111" }}>{c.label}</div>
-                    <div style={{ fontSize: 9, color: "#999" }}>{c.room}</div>
-                  </div>
-                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: c.color }} />
+
+            <InteractivePhoneFrame>
+              <div
+                className="w-[232px] bg-[#f6f6f6] rounded-[38px] p-[18px] flex flex-col gap-3"
+                style={{
+                  boxShadow:
+                    "0 24px 60px rgba(0,0,0,0.13), 0 0 0 1px rgba(0,0,0,0.06)",
+                }}
+              >
+                {/* Top Speaker Pill */}
+                <div className="flex justify-center">
+                  <div className="w-14 h-1.5 bg-[#dcdcdc] rounded-full" />
                 </div>
-              ))}
-            </div>
-            {/* Fake tab bar */}
-            <div style={{ display: "flex", justifyContent: "space-around", paddingTop: 8, borderTop: "1px solid #e5e5e5" }}>
-              {["Home", "Schedule", "Links"].map((t, i) => (
-                <span key={t} style={{ fontSize: 9, color: i === 0 ? "#cc0000" : "#aaa", fontWeight: i === 0 ? 700 : 400 }}>{t}</span>
-              ))}
-            </div>
+
+                {/* App Icon Centered */}
+                <div className="flex justify-center items-center h-[136px]">
+                  <div
+                    className="w-[92px] h-[92px] rounded-[22px] overflow-hidden bg-[#cc0000]"
+                    style={{ boxShadow: "0 10px 26px rgba(204,0,0,0.28)" }}
+                  >
+                    <Image
+                      src="/logo.png"
+                      alt="YorkUFind App"
+                      width={92}
+                      height={92}
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Today's Classes Preview */}
+                <div className="flex flex-col gap-2">
+                  {[
+                    { label: "NATS 1516 • 8:30 AM", room: "VH C", color: "#cc0000" },
+                    { label: "SOSC 3042 • 11:30 AM", room: "Online", color: "#555" },
+                    { label: "HUMA 3835 • 2:30 PM", room: "MC 112", color: "#cc0000" },
+                  ].map((c, i) => (
+                    <div
+                      key={i}
+                      className="bg-white rounded-[11px] px-2.5 py-2 flex justify-between items-center"
+                      style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}
+                    >
+                      <div>
+                        <div className="text-[10px] font-bold text-[#111]">
+                          {c.label}
+                        </div>
+                        <div className="text-[9px] text-[#999]">{c.room}</div>
+                      </div>
+                      <div
+                        className="w-2 h-2 rounded-full"
+                        style={{ background: c.color }}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Tab Bar */}
+                <div className="flex justify-around pt-2 border-t border-[#e6e6e6]">
+                  {["Home", "Schedule", "Links"].map((t, i) => (
+                    <span
+                      key={t}
+                      className="text-[9px]"
+                      style={{
+                        color: i === 0 ? "#cc0000" : "#aaa",
+                        fontWeight: i === 0 ? 700 : 400,
+                      }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </InteractivePhoneFrame>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      {/* ── FEATURES ── */}
-      <section style={{ background: "#fafafa", borderTop: "1px solid #f0f0f0", padding: "72px 32px" }}>
-        <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-          <h2 style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.02em", marginBottom: 10 }}>
-            Everything a York student needs
-          </h2>
-          <p style={{ fontSize: 15, color: "#777", marginBottom: 48 }}>
-            No login required. No data collected. Just useful tools, offline.
-          </p>
+      {/* ── FEATURES (#074 Scroll Reveal + #081 Hover Lift) ── */}
+      <section className="bg-[#fafafa] border-t border-[#f0f0f0] py-[72px] px-6 sm:px-8">
+        <div className="max-w-[780px] mx-auto text-center">
+          <Reveal>
+            <h2 className="text-[28px] font-extrabold tracking-[-0.02em] text-[#111] mb-2.5">
+              Everything a York student needs
+            </h2>
+            <p className="text-[15px] text-[#777] mb-12">
+              No login required. No data collected. Just useful tools, offline.
+            </p>
+          </Reveal>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, textAlign: "left" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
             {[
               {
                 icon: "📅",
@@ -172,73 +210,108 @@ export default function Home() {
                 title: "100% Private",
                 desc: "Your schedule stays on your device. No account, no Passport York login, no data sent anywhere.",
               },
-            ].map((f) => (
-              <div key={f.title} style={{
-                background: "#fff",
-                border: "1px solid #ebebeb",
-                borderRadius: 14,
-                padding: "20px 20px",
-                display: "flex", gap: 14, alignItems: "flex-start",
-              }}>
-                <span style={{ fontSize: 22, flexShrink: 0 }}>{f.icon}</span>
-                <div>
-                  <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 4, color: "#111" }}>{f.title}</div>
-                  <div style={{ fontSize: 13, color: "#888", lineHeight: 1.55 }}>{f.desc}</div>
+            ].map((f, idx) => (
+              <Reveal key={f.title} delayMs={idx * 80}>
+                <div className="hover-lift bg-white border border-[#ebebeb] rounded-[14px] p-5 flex gap-3.5 items-start h-full">
+                  <span className="text-[22px] shrink-0">{f.icon}</span>
+                  <div>
+                    <div className="text-[14px] font-bold mb-1 text-[#111]">
+                      {f.title}
+                    </div>
+                    <div className="text-[13px] text-[#777] leading-[1.55]">
+                      {f.desc}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3-STEP SECTION (Clean TapSheet-style) ── */}
+      <section className="bg-white border-t border-[#f0f0f0] py-[72px] px-6 sm:px-8">
+        <div className="max-w-[780px] mx-auto text-center">
+          <Reveal>
+            <h2 className="text-[28px] font-extrabold tracking-[-0.02em] text-[#111] mb-12">
+              Up and running in a minute
+            </h2>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {[
+              {
+                num: "1",
+                title: "Paste from REM",
+                desc: "Copy your course list straight from REM or Plot My Timetable.",
+              },
+              {
+                num: "2",
+                title: "See your week",
+                desc: "Automatically sorted into Fall & Winter with room codes.",
+              },
+              {
+                num: "3",
+                title: "Stay on track",
+                desc: "Check today's classes and official York links offline anytime.",
+              },
+            ].map((step, idx) => (
+              <Reveal key={step.num} delayMs={idx * 100}>
+                <div className="flex flex-col items-center">
+                  <div className="w-9 h-9 rounded-full bg-[#cc0000] text-white text-[14px] font-bold flex items-center justify-center mb-3.5 shadow-sm">
+                    {step.num}
+                  </div>
+                  <div className="text-[14px] font-bold text-[#111] mb-1.5">
+                    {step.title}
+                  </div>
+                  <p className="text-[13px] text-[#777] leading-[1.55] max-w-[210px]">
+                    {step.desc}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── RED CTA ── */}
-      <section style={{
-        background: "#cc0000",
-        padding: "64px 32px",
-        textAlign: "center",
-      }}>
-        <h2 style={{ fontSize: 26, fontWeight: 800, color: "#fff", marginBottom: 10, letterSpacing: "-0.02em" }}>
-          Get YorkUFind today
-        </h2>
-        <p style={{ fontSize: 14, color: "rgba(255,255,255,0.75)", marginBottom: 28, maxWidth: 360, margin: "0 auto 28px" }}>
-          Built by York students, for York students. Free, private, and always offline-ready.
-        </p>
-        <a
-          href="mailto:yorkufind@outlook.com?subject=YorkUFind%20Beta%20Access"
-          style={{
-            display: "inline-flex", alignItems: "center", gap: 8,
-            background: "#000", color: "#fff",
-            padding: "11px 22px", borderRadius: 10,
-            textDecoration: "none", fontSize: 14, fontWeight: 600,
-          }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-          </svg>
-          Download on the App Store
-        </a>
+      <section className="bg-[#cc0000] py-16 px-6 sm:px-8 text-center">
+        <Reveal>
+          <h2 className="text-[28px] font-extrabold text-white mb-2.5 tracking-[-0.02em]">
+            Get YorkUFind today
+          </h2>
+          <p className="text-[14px] text-white/80 max-w-[360px] mx-auto mb-7">
+            Built by York students, for York students. Free, private, and always
+            offline-ready.
+          </p>
+          <MagneticButton
+            href="mailto:yorkufind@outlook.com?subject=YorkUFind%20Beta%20Access"
+            className="inline-flex items-center gap-2 bg-black text-white px-[22px] py-[12px] rounded-[11px] no-underline text-[14px] font-semibold shadow-lg"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+            </svg>
+            Download on the App Store
+          </MagneticButton>
+        </Reveal>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer style={{
-        borderTop: "1px solid #f0f0f0",
-        padding: "24px 32px",
-        display: "flex",
-        justifyContent: "center",
-        gap: 32,
-        flexWrap: "wrap",
-      }}>
+      {/* ── FOOTER (#086 Underline Animation) ── */}
+      <footer className="border-t border-[#f0f0f0] py-6 px-6 sm:px-8 flex justify-center gap-8 flex-wrap">
         {[
           { label: "Privacy Policy", href: "/privacy" },
           { label: "Terms of Use", href: "/terms" },
           { label: "Support", href: "/support" },
         ].map((l) => (
-          <Link key={l.href} href={l.href} style={{ fontSize: 13, color: "#666", textDecoration: "none" }}>
+          <Link
+            key={l.href}
+            href={l.href}
+            className="link-underline text-[13px] text-[#666] hover:text-[#111] transition-colors"
+          >
             {l.label}
           </Link>
         ))}
       </footer>
-
     </div>
   );
 }
