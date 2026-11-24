@@ -229,51 +229,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 3-STEP SECTION (Clean TapSheet-style) ── */}
-      <section className="bg-white border-t border-[#f0f0f0] py-[72px] px-6 sm:px-8">
-        <div className="max-w-[780px] mx-auto text-center">
-          <Reveal>
-            <h2 className="text-[28px] font-extrabold tracking-[-0.02em] text-[#111] mb-12">
-              Up and running in a minute
-            </h2>
-          </Reveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {[
-              {
-                num: "1",
-                title: "Paste from REM",
-                desc: "Copy your course list straight from REM or Plot My Timetable.",
-              },
-              {
-                num: "2",
-                title: "See your week",
-                desc: "Automatically sorted into Fall & Winter with room codes.",
-              },
-              {
-                num: "3",
-                title: "Stay on track",
-                desc: "Check today's classes and official York links offline anytime.",
-              },
-            ].map((step, idx) => (
-              <Reveal key={step.num} delayMs={idx * 100}>
-                <div className="flex flex-col items-center">
-                  <div className="w-9 h-9 rounded-full bg-[#cc0000] text-white text-[14px] font-bold flex items-center justify-center mb-3.5 shadow-sm">
-                    {step.num}
-                  </div>
-                  <div className="text-[14px] font-bold text-[#111] mb-1.5">
-                    {step.title}
-                  </div>
-                  <p className="text-[13px] text-[#777] leading-[1.55] max-w-[210px]">
-                    {step.desc}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── RED CTA ── */}
       <section className="bg-[#cc0000] py-16 px-6 sm:px-8 text-center">
         <Reveal>
