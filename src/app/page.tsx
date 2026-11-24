@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  Calendar,
+  MapPin,
+  Link2,
+  Search,
+  Clock,
+  ShieldCheck,
+} from "lucide-react";
+import {
   StickyHeader,
   Reveal,
   MagneticButton,
@@ -177,48 +185,60 @@ export default function Home() {
       </section>
 
       {/* ── FEATURES (#074 Scroll Reveal + #081 Hover Lift) ── */}
-      <section className="bg-[#fafafa] border-t border-[#f0f0f0] py-[72px] px-6 sm:px-8">
-        <div className="max-w-[780px] mx-auto text-center">
+      <section className="bg-[#fafafa] border-t border-[#f0f0f0] py-[76px] px-6 sm:px-8">
+        <div className="max-w-[860px] mx-auto text-center">
           <Reveal>
-            <h2 className="text-[28px] font-extrabold tracking-[-0.02em] text-[#111] mb-2.5">
+            <h2 className="text-[28px] sm:text-[32px] font-extrabold tracking-[-0.025em] text-[#111] mb-2.5">
               Everything a York student needs
             </h2>
             <p className="text-[15px] text-[#777] mb-12">
-              No login required. No data collected. Just useful tools, offline.
+              Simple, fast, and completely offline.
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
             {[
               {
-                icon: "📅",
-                title: "Smart Schedule Builder",
-                desc: "Paste your timetable from REM or Plot My Timetable. We parse it instantly into a clean weekly grid.",
+                Icon: Calendar,
+                title: "Schedule Viewer",
+                desc: "Weekly Fall & Winter timetable in one paste.",
               },
               {
-                icon: "🔍",
-                title: "Course Finder",
-                desc: "Search York's official course directory directly — one tap to check prerequisites, sections, and times.",
+                Icon: MapPin,
+                title: "Built-in Campus Map",
+                desc: "Find buildings and lecture halls fast.",
               },
               {
-                icon: "🏫",
-                title: "Campus Navigation",
-                desc: "Building codes decoded. VH, MC, VC, ACW — find your room without guessing.",
+                Icon: Link2,
+                title: "Quick Links Finder",
+                desc: "One-tap access to eClass, REM, and portals.",
               },
               {
-                icon: "🔒",
+                Icon: Search,
+                title: "Course Directory",
+                desc: "Search York courses and sections.",
+              },
+              {
+                Icon: Clock,
+                title: "Important Dates",
+                desc: "Key academic deadlines at a glance.",
+              },
+              {
+                Icon: ShieldCheck,
                 title: "100% Private",
-                desc: "Your schedule stays on your device. No account, no Passport York login, no data sent anywhere.",
+                desc: "No login required. Stays on your device.",
               },
             ].map((f, idx) => (
-              <Reveal key={f.title} delayMs={idx * 80}>
-                <div className="hover-lift bg-white border border-[#ebebeb] rounded-[14px] p-5 flex gap-3.5 items-start h-full">
-                  <span className="text-[22px] shrink-0">{f.icon}</span>
+              <Reveal key={f.title} delayMs={idx * 60}>
+                <div className="hover-lift bg-white border border-[#ebebeb] rounded-[16px] p-5 flex items-start gap-3.5 h-full">
+                  <div className="w-9 h-9 rounded-[10px] bg-[#cc0000]/[0.08] text-[#cc0000] flex items-center justify-center shrink-0">
+                    <f.Icon className="w-[18px] h-[18px]" strokeWidth={2.2} />
+                  </div>
                   <div>
-                    <div className="text-[14px] font-bold mb-1 text-[#111]">
+                    <div className="text-[14px] font-bold text-[#111] mb-0.5">
                       {f.title}
                     </div>
-                    <div className="text-[13px] text-[#777] leading-[1.55]">
+                    <div className="text-[13px] text-[#777] leading-[1.45]">
                       {f.desc}
                     </div>
                   </div>
@@ -226,6 +246,13 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal delayMs={360}>
+            <div className="mt-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#eaeaea] text-[12px] font-medium text-[#777]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#cc0000]" />
+              And much more
+            </div>
+          </Reveal>
         </div>
       </section>
 
