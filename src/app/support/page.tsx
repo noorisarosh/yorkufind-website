@@ -8,60 +8,34 @@ export const metadata: Metadata = {
 
 export default function SupportPage() {
   return (
-    <div style={{ minHeight: "100vh", background: "#0a0a0a", color: "#fff" }}>
-      <header style={{ padding: "32px 48px", borderBottom: "1px solid #1f1f1f" }}>
-        <Link
-          href="/"
-          style={{ fontSize: 11, color: "#555", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" }}
-        >
-          ← YorkUFind
-        </Link>
+    <div style={{ minHeight: "100vh", background: "#fff", color: "#111" }}>
+      <header style={{ height: 60, borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", padding: "0 32px" }}>
+        <Link href="/" style={{ fontWeight: 700, fontSize: 15, color: "#111", textDecoration: "none" }}>YorkUFind</Link>
       </header>
 
-      <main
-        style={{
-          maxWidth: 640,
-          margin: "0 auto",
-          padding: "72px 32px",
-        }}
-      >
-        <p style={{ fontSize: 11, color: "#555", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>
-          Contact
-        </p>
-        <h1
-          style={{
-            fontSize: "clamp(28px, 5vw, 48px)",
-            fontWeight: 800,
-            letterSpacing: "-0.02em",
-            marginBottom: 24,
-            lineHeight: 1.1,
-          }}
-        >
-          Support
-        </h1>
-        <p style={{ fontSize: 14, color: "#999", lineHeight: 1.75, marginBottom: 32 }}>
+      <main style={{ maxWidth: 640, margin: "0 auto", padding: "64px 32px 80px" }}>
+        <p style={{ fontSize: 12, color: "#aaa", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 12 }}>Contact</p>
+        <h1 style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-0.02em", marginBottom: 20 }}>Support</h1>
+        <p style={{ fontSize: 14, color: "#666", lineHeight: 1.75, marginBottom: 32 }}>
           Have a question, found a bug, or want to give feedback? Reach out and we'll get back to you.
         </p>
         <a
           href="mailto:yorkufind@outlook.com"
           style={{
             display: "inline-block",
-            fontSize: 13,
-            color: "#cc0000",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            textDecoration: "none",
-            fontWeight: 600,
+            background: "#cc0000", color: "#fff",
+            padding: "11px 22px", borderRadius: 10,
+            textDecoration: "none", fontSize: 14, fontWeight: 600,
           }}
         >
           yorkufind@outlook.com →
         </a>
       </main>
 
-      <footer style={{ borderTop: "1px solid #1f1f1f", padding: "24px 48px" }}>
-        <span style={{ fontSize: 11, color: "#444", letterSpacing: "0.04em", textTransform: "uppercase" }}>
-          © 2026 — YorkUFind
-        </span>
+      <footer style={{ borderTop: "1px solid #f0f0f0", padding: "24px 32px", display: "flex", justifyContent: "center", gap: 32 }}>
+        {[{ label: "Privacy Policy", href: "/privacy" }, { label: "Terms of Use", href: "/terms" }, { label: "Support", href: "/support" }].map(l => (
+          <Link key={l.href} href={l.href} style={{ fontSize: 13, color: "#666", textDecoration: "none" }}>{l.label}</Link>
+        ))}
       </footer>
     </div>
   );
