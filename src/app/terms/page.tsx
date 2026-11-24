@@ -6,77 +6,87 @@ export const metadata: Metadata = {
   description: "Terms of Use for the YorkUFind app.",
 };
 
+const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <section style={{ marginBottom: 32 }}>
+    <h2 style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#666", marginBottom: 10 }}>
+      {title}
+    </h2>
+    <p style={{ fontSize: 14, color: "#999", lineHeight: 1.75 }}>{children}</p>
+  </section>
+);
+
 export default function TermsPage() {
   return (
-    <div className="min-h-screen px-6 py-16 max-w-2xl mx-auto">
-      <Link href="/" className="text-sm text-gray-400 hover:text-red-600 transition-colors">
-        ← Back
-      </Link>
+    <div style={{ minHeight: "100vh", background: "#0a0a0a", color: "#fff" }}>
+      {/* Header */}
+      <header style={{ padding: "32px 48px", borderBottom: "1px solid #1f1f1f" }}>
+        <Link
+          href="/"
+          style={{ fontSize: 11, color: "#555", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" }}
+        >
+          ← YorkUFind
+        </Link>
+      </header>
 
-      <h1 className="mt-6 text-3xl font-black text-gray-900">Terms of Use</h1>
-      <p className="mt-1 text-sm text-gray-400">Last updated: November 24, 2026</p>
+      {/* Content */}
+      <main style={{ maxWidth: 640, margin: "0 auto", padding: "72px 32px" }}>
+        <p style={{ fontSize: 11, color: "#555", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>
+          Last updated — November 24, 2026
+        </p>
+        <h1
+          style={{
+            fontSize: "clamp(28px, 5vw, 48px)",
+            fontWeight: 800,
+            letterSpacing: "-0.02em",
+            marginBottom: 56,
+            lineHeight: 1.1,
+          }}
+        >
+          Terms of Use
+        </h1>
 
-      <div className="mt-8 space-y-6 text-sm text-gray-600 leading-relaxed">
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">1. Acceptance</h2>
-          <p>
-            By downloading or using YorkUFind, you agree to these Terms of Use. If you do not agree, please do not use the app.
-          </p>
-        </section>
+        <Section title="1. Acceptance">
+          By downloading or using YorkUFind, you agree to these Terms of Use. If you do not agree, please do not use the app.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">2. Not Affiliated with York University</h2>
-          <p>
-            YorkUFind is an independent, student-created application. It is not officially affiliated with, endorsed by, or operated by York University. All York University trademarks, course codes, and portal names belong to their respective owners.
-          </p>
-        </section>
+        <Section title="2. Not Affiliated with York University">
+          YorkUFind is an independent, student-created application. It is not officially affiliated with, endorsed by, or operated by York University. All York University trademarks, course codes, and portal names belong to their respective owners.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">3. Accuracy of Information</h2>
-          <p>
-            YorkUFind is a convenience tool. It is not an official source of academic information. Always verify your class schedule, room assignments, deadlines, and academic standing directly through York University's official portals (such as REM and the Registrar's Office).
-          </p>
-        </section>
+        <Section title="3. Accuracy of Information">
+          YorkUFind is a convenience tool, not an official source of academic information. Always verify your class schedule, room assignments, deadlines, and academic standing directly through York University's official portals (such as REM and the Registrar's Office).
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">4. Permitted Use</h2>
-          <p>
-            YorkUFind is provided for personal, non-commercial, educational use only. You may not reverse-engineer, copy, or redistribute the app for commercial purposes.
-          </p>
-        </section>
+        <Section title="4. Permitted Use">
+          YorkUFind is provided for personal, non-commercial, educational use only. You may not reverse-engineer, copy, or redistribute the app for commercial purposes.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">5. Disclaimer of Warranties</h2>
-          <p>
-            The app is provided "as is" without any warranties of any kind. We do not guarantee that the app will be error-free, uninterrupted, or completely accurate at all times.
-          </p>
-        </section>
+        <Section title="5. Disclaimer of Warranties">
+          The app is provided "as is" without any warranties of any kind. We do not guarantee that the app will be error-free, uninterrupted, or completely accurate at all times.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">6. Limitation of Liability</h2>
-          <p>
-            To the maximum extent permitted by law, the developers of YorkUFind are not liable for any damages arising from your use of the app, including missed classes, missed deadlines, or any academic consequences.
-          </p>
-        </section>
+        <Section title="6. Limitation of Liability">
+          To the maximum extent permitted by law, the developers of YorkUFind are not liable for any damages arising from your use of the app, including missed classes, missed deadlines, or any academic consequences.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">7. Changes to Terms</h2>
-          <p>
-            We may update these terms at any time. Continued use of the app after changes are posted means you accept the updated terms.
-          </p>
-        </section>
+        <Section title="7. Changes to Terms">
+          We may update these terms at any time. Continued use of the app after changes are posted means you accept the updated terms.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">8. Contact</h2>
-          <p>
-            For any questions about these terms, contact us at{" "}
-            <a href="mailto:yorkufind@outlook.com" className="text-red-600 hover:underline">
-              yorkufind@outlook.com
-            </a>
-            .
-          </p>
-        </section>
-      </div>
+        <Section title="8. Contact">
+          For any questions, contact us at{" "}
+          <a href="mailto:yorkufind@outlook.com" style={{ color: "#cc0000", textDecoration: "none" }}>
+            yorkufind@outlook.com
+          </a>
+          .
+        </Section>
+      </main>
+
+      <footer style={{ borderTop: "1px solid #1f1f1f", padding: "24px 48px" }}>
+        <span style={{ fontSize: 11, color: "#444", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+          © 2026 — YorkUFind
+        </span>
+      </footer>
     </div>
   );
 }

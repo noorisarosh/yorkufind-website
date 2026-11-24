@@ -6,77 +6,87 @@ export const metadata: Metadata = {
   description: "Privacy Policy for the YorkUFind app.",
 };
 
+const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <section style={{ marginBottom: 32 }}>
+    <h2 style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#666", marginBottom: 10 }}>
+      {title}
+    </h2>
+    <p style={{ fontSize: 14, color: "#999", lineHeight: 1.75 }}>{children}</p>
+  </section>
+);
+
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen px-6 py-16 max-w-2xl mx-auto">
-      <Link href="/" className="text-sm text-gray-400 hover:text-red-600 transition-colors">
-        ← Back
-      </Link>
+    <div style={{ minHeight: "100vh", background: "#0a0a0a", color: "#fff" }}>
+      {/* Header */}
+      <header style={{ padding: "32px 48px", borderBottom: "1px solid #1f1f1f" }}>
+        <Link
+          href="/"
+          style={{ fontSize: 11, color: "#555", textDecoration: "none", letterSpacing: "0.08em", textTransform: "uppercase" }}
+        >
+          ← YorkUFind
+        </Link>
+      </header>
 
-      <h1 className="mt-6 text-3xl font-black text-gray-900">Privacy Policy</h1>
-      <p className="mt-1 text-sm text-gray-400">Last updated: November 24, 2026</p>
+      {/* Content */}
+      <main style={{ maxWidth: 640, margin: "0 auto", padding: "72px 32px" }}>
+        <p style={{ fontSize: 11, color: "#555", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>
+          Last updated — November 24, 2026
+        </p>
+        <h1
+          style={{
+            fontSize: "clamp(28px, 5vw, 48px)",
+            fontWeight: 800,
+            letterSpacing: "-0.02em",
+            marginBottom: 56,
+            lineHeight: 1.1,
+          }}
+        >
+          Privacy Policy
+        </h1>
 
-      <div className="mt-8 space-y-6 text-sm text-gray-600 leading-relaxed">
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">1. Overview</h2>
-          <p>
-            YorkUFind is an independent, student-made app for York University students. We are committed to protecting your privacy. This policy explains what data we handle and how.
-          </p>
-        </section>
+        <Section title="1. Overview">
+          YorkUFind is an independent, student-made app for York University students. We are committed to protecting your privacy. This policy explains what data we handle and how.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">2. Data We Do Not Collect</h2>
-          <p>
-            We do not collect, store, or transmit any personal information. We do not ask for your name, email, Passport York credentials, student ID, or any identifying information. There are no accounts, no sign-ups, and no logins.
-          </p>
-        </section>
+        <Section title="2. Data We Do Not Collect">
+          We do not collect, store, or transmit any personal information. We do not ask for your name, email, Passport York credentials, student ID, or any identifying information. There are no accounts, no sign-ups, and no logins.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">3. On-Device Storage</h2>
-          <p>
-            Your schedule and any preferences are stored entirely on your device using local storage. This data never leaves your phone and is not shared with us or any third party.
-          </p>
-        </section>
+        <Section title="3. On-Device Storage">
+          Your schedule and any preferences are stored entirely on your device using local storage. This data never leaves your phone and is not shared with us or any third party.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">4. Third-Party Links</h2>
-          <p>
-            The app contains links to official York University portals (such as eClass, REM, and the Course Directory). These external sites are governed by their own privacy policies. We have no control over and no access to those services.
-          </p>
-        </section>
+        <Section title="4. Third-Party Links">
+          The app contains links to official York University portals (such as eClass, REM, and the Course Directory). These external sites are governed by their own privacy policies. We have no control over and no access to those services.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">5. Analytics & Tracking</h2>
-          <p>
-            We do not use any analytics tools, advertising trackers, or cookies.
-          </p>
-        </section>
+        <Section title="5. Analytics & Tracking">
+          We do not use any analytics tools, advertising trackers, or cookies.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">6. Children's Privacy</h2>
-          <p>
-            YorkUFind is intended for university students and is not directed at children under the age of 13. We do not knowingly collect any information from children.
-          </p>
-        </section>
+        <Section title="6. Children's Privacy">
+          YorkUFind is intended for university students and is not directed at children under the age of 13. We do not knowingly collect any information from children.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">7. Changes to This Policy</h2>
-          <p>
-            We may update this policy from time to time. Any changes will be reflected on this page with an updated date.
-          </p>
-        </section>
+        <Section title="7. Changes to This Policy">
+          We may update this policy from time to time. Any changes will be reflected on this page with an updated date.
+        </Section>
 
-        <section>
-          <h2 className="font-bold text-gray-800 mb-1">8. Contact</h2>
-          <p>
-            If you have any questions about this privacy policy, please contact us at{" "}
-            <a href="mailto:yorkufind@outlook.com" className="text-red-600 hover:underline">
-              yorkufind@outlook.com
-            </a>
-            .
-          </p>
-        </section>
-      </div>
+        <Section title="8. Contact">
+          If you have any questions, contact us at{" "}
+          <a href="mailto:yorkufind@outlook.com" style={{ color: "#cc0000", textDecoration: "none" }}>
+            yorkufind@outlook.com
+          </a>
+          .
+        </Section>
+      </main>
+
+      <footer style={{ borderTop: "1px solid #1f1f1f", padding: "24px 48px" }}>
+        <span style={{ fontSize: 11, color: "#444", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+          © 2026 — YorkUFind
+        </span>
+      </footer>
     </div>
   );
 }
